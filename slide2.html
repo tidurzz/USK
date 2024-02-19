@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caps Hotel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- logo  -->
+  <link rel="shortcut icon" href="logofix.png" class="width: large;" type="image/x-icon">
+
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Caps Hotel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- card paket hotel -->
+  <div class="row justify-content-center gap-4 m-4">
+    <div class="card col-sm-3 p-2">
+      <img src="kamarhotel.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Basic Comfort</h5>
+        <p class="card-price">Rp. 100.000</p>
+        <p class="card-text">kamar kapsul dengan tempat tidur tunggal dan di lengkapi jaringan wifi. cocok untuk anda
+          yang ingin beristirahat.</p>
+        <button type="button" class="btn btn-primary addToCart" data-price="100000" data-toggle="modal"
+          data-target="#exampleModal">
+          Reserved
+        </button>
+      </div>
+    </div>
+    <div class="card col-sm-3 p-2">
+      <img src="kamarhotel.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">VIP</h5>
+        <p class="card-price">Rp. 200.000</p>
+        <p class="card-text">Menyediakan fasilitas kamar tidur kapsul double bed,jaringan wifi cocok untuk anda yang sedang beristirahat dengan teman/pasangan anda. </p>
+        <button type="button" class="btn btn-primary addToCart" data-price="200000" data-toggle="modal"
+          data-target="#exampleModal">
+          Reserved
+        </button>
+      </div>
+    </div>
+    <div class="card col-sm-3 p-2">
+      <img src="kamarhotel.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">VVIP</h5>
+        <p class="card-price">Rp. 300.000</p>
+        <p class="card-text">Dilengkapi dengan fasilitas Extra bed, jaringan wifi,Televisi cocok untuk anda yang ingin beristirahat dengan keluarga.</p>
+        <button type="button" class="btn btn-primary addToCart" data-price="300000" data-toggle="modal"
+          data-target="#exampleModal">
+          Reserved
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Modal (elemen timbul)-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Reserved</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!--kolom tanggal-->
+          <div class="col-">
+            <label for="validationCustom01" class="form-label">Pilih Tanggal Check In</label>
+            <input type="date" class="form-control" id="validationCustom01" required onchange="updateNumberOfDays()">
+          </div>
+          <div class="col-">
+            <label for="validationCustom02" class="form-label">Pilih Tanggal Check Out</label>
+            <input type="date" class="form-control" id="validationCustom02" required onchange="updateNumberOfDays()">
+          </div>
+        </div>
+        <div class="modal-body">
+          <!-- detail reservasi -->
+          <p>Jumlah Hari: <span id="numberOfDays">0</span></p>
+          <p>Harga Per Hari : Rp. <span id="harga">0</span></p>
+          <p>Total Harga: <span id="total">0</span></p>
+
+          <!-- Form Biodata -->
+          <form id="biodataForm">
+            <div class="form-group">
+              <label for="fullName">Nama Lengkap:</label>
+              <input type="text" class="form-control" id="fullName" name="fullName" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Alamat:</label>
+              <textarea class="form-control" id="address" name="address" required></textarea>
+            </div>
+
+            <div class="text-center mt-2">
+              <button type="button" class="btn btn-primary" onclick="completePurchase()">Selesaikan Reservasi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <script>
+    function updateNumberOfDays() {
+      var checkInDate = new Date(document.getElementById('validationCustom01').value);
+      var checkOutDate = new Date(document.getElementById('validationCustom02').value);
+// untuk mendapatkan selisih hari dalam milidetik
+      var timeDifference = checkOutDate.getTime() - checkInDate.getTime();
+      // untuk menentukan jumlah hari
+      var numberOfDays = Math.ceil(timeDifference / (1000 * 3600 * 24));
+
+      if (numberOfDays > 0) {
+        var hargaPerHari = parseInt($('#harga').data('price'));
+        var totalHarga = hargaPerHari * numberOfDays;
+
+        $('#numberOfDays').text(numberOfDays);
+        $('#total').text(totalHarga.toLocaleString());
+      } else {
+        $('#numberOfDays').text(0);
+        $('#total').text(0);
+      }
+    } 
+
+    function completePurchase() {
+      // mendapatkan data yang di input user
+    var fullName = document.getElementById('fullName').value;
+    var email = document.getElementById('email').value;
+    var address = document.getElementById('address').value;
+
+    // Check if any of the fields are empty
+    if (fullName === '' || email === '' || address === '') {
+      // Display a warning message or alert
+      alert('Form biodata wajib terisi. Harap lengkapi semua kolom.');
+      return; // Stop further execution if validation fails
+    }
+
+      var checkInDate = new Date(document.getElementById('validationCustom01').value);
+      var checkOutDate = new Date(document.getElementById('validationCustom02').value);
+      var timeDifference = checkOutDate.getTime() - checkInDate.getTime();
+      var numberOfDays = Math.ceil(timeDifference / (1000 * 3600 * 24));
+
+      var hargaPerHari = parseInt($('#harga').data('price'));
+      var totalHarga = hargaPerHari * numberOfDays;
+
+      // data yang disimpan dalam localstorage
+      var userData = {
+        fullName: document.getElementById('fullName').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value,
+        checkInDate: document.getElementById('validationCustom01').value,
+        checkOutDate: document.getElementById('validationCustom02').value,
+        totalPrice: totalHarga.toLocaleString(),
+        numberOfDays: numberOfDays
+      };
+
+      localStorage.setItem('userData', JSON.stringify(userData));
+
+      // Alihkan ke slide3.html
+      window.location.href = 'slide3.html';
+    }
+
+    // Fungsi untuk mengatur harga pada modal saat tombol Reserved diklik
+    $(document).ready(function () {
+      $('.addToCart').on('click', function () {
+        var pricePerDay = $(this).data('price');
+        $('#harga').text(pricePerDay.toLocaleString());
+        $('#harga').data('price', pricePerDay); 
+        $('#total').text(pricePerDay.toLocaleString()); // Initially, set total price same as price per day.
+        $('#total').data('price', pricePerDay);
+      });
+    });
+  </script>
+
+</body>
+
+</html>
+
+
